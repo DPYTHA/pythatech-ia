@@ -16,12 +16,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 70vh;
     background: linear-gradient(135deg, #1f1c2c, #928dab);
   }
   
   #splash-text {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
     letter-spacing: 0.2em;
   }
