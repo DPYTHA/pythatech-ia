@@ -3,12 +3,229 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="web icon" href="logo.png">
+  <link rel="icon" href="logo.png">
   <title>PythAcademy – Nos Offres</title>
-  <link rel="stylesheet" href="services.css" />
+  <style>
+    /* Variables CSS pour une cohérence */
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --secondary: #10b981;
+      --accent: #f59e0b;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --transition: all 0.3s ease;
+      --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    /* Reset et styles de base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: var(--dark);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    #services {
+      width: 100%;
+      max-width: 1200px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 60px 40px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #services::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+      z-index: 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 60px;
+      color: var(--dark);
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 5px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      margin: 20px auto 0;
+      border-radius: 10px;
+    }
+
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-box {
+      display: block;
+      background: white;
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-decoration: none;
+      color: var(--dark);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .service-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+    }
+
+    .service-box:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .service-box:nth-child(1):hover {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    }
+
+    .service-box:nth-child(2):hover {
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    }
+
+    .service-box:nth-child(3):hover {
+      background: linear-gradient(135deg, #fef7ed 0%, #fed7aa 100%);
+    }
+
+    .service-box h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .service-box p {
+      color: var(--gray);
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    /* Animation d'entrée */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .service-box {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .service-box:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .service-box:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .service-box:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #services {
+        padding: 40px 20px;
+      }
+      
+      .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+      }
+      
+      .services-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .service-box {
+        padding: 30px 20px;
+      }
+    }
+
+    /* Effet de particules subtiles */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .particle {
+      position: absolute;
+      background: var(--primary);
+      border-radius: 50%;
+      opacity: 0.1;
+      animation: float 15s infinite linear;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-1000px) rotate(720deg);
+      }
+    }
+  </style>
 </head>
 <body>
   <section id="services">
+    <div class="particles" id="particles"></div>
     <h1 class="section-title">Bienvenue sur PythAcademy</h1>
     <div class="services-container">
       <a href="admission.html" class="service-box">
@@ -19,12 +236,42 @@
         <h3>💻 Formations en ligne et présentielle</h3>
         <p>Participez à des formations certifiantes en ligne ou en présentiel.</p>
       </a>
-
-       <a href="formulaire.html" class="service-box">
-        <h3>📩 Contactez nous pour votre candidature</h3>
+      <a href="formulaire.html" class="service-box">
+        <h3>📩 Contactez-nous pour votre candidature</h3>
         <p>Remplissez notre formulaire et soumettez votre candidature en toute simplicité.</p>
       </a>
     </div>
   </section>
+
+  <script>
+    // Création d'effet de particules subtiles
+    document.addEventListener('DOMContentLoaded', function() {
+      const particlesContainer = document.getElementById('particles');
+      const colors = ['#6366f1', '#10b981', '#f59e0b'];
+      
+      for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Propriétés aléatoires
+        const size = Math.random() * 10 + 5;
+        const posX = Math.random() * 100;
+        const posY = Math.random() * 100;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const delay = Math.random() * 15;
+        const duration = Math.random() * 10 + 15;
+        
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${posX}%`;
+        particle.style.top = `${posY}%`;
+        particle.style.background = color;
+        particle.style.animationDelay = `${delay}s`;
+        particle.style.animationDuration = `${duration}s`;
+        
+        particlesContainer.appendChild(particle);
+      }
+    });
+  </script>
 </body>
 </html>
