@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renseignement du Candidat</title>
+    <link rel="stylesheet" href="formulaire.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>« Voyageons pour les études et le travail »</h1>
+            <p>RENSEIGNEMENT DU CANDIDAT</p>
+            <div class="whatsapp">
+                <i>📱</i> WhatsApp +7 987 904 0719
+            </div>
+        </header>
+        
+        <div class="form-container">
+            <form id="candidateForm" enctype="multipart/form-data">
+                <!-- Informations personnelles -->
+                <div class="form-section">
+                    <h2>Informations Personnelles</h2>
+                    
+                    <div class="form-group">
+                        <label for="nom" class="required">Nom</label>
+                        <input type="text" id="nom" name="nom" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="prenom" class="required">Prénom</label>
+                        <input type="text" id="prenom" name="prenom" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telephone" class="required">Numéro de téléphone</label>
+                        <input type="tel" id="telephone" name="telephone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="required">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pays" class="required">Pays</label>
+                        <input type="text" id="pays" name="pays" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ville" class="required">Ville</label>
+                        <input type="text" id="ville" name="ville" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="quartier" class="required">Quartier</label>
+                        <input type="text" id="quartier" name="quartier" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="nomPere" class="required">Nom, prénom du père</label>
+                        <input type="text" id="nomPere" name="nomPere" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="nomMere" class="required">Nom, prénom de la mère</label>
+                        <input type="text" id="nomMere" name="nomMere" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="required">Statut</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="marie" name="statut" value="Marie(e)" required>
+                                <label for="marie">Marié(e)</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="celibataire" name="statut" value="Celibataire" required>
+                                <label for="celibataire">Célibataire</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Personne à contacter en cas d'urgence -->
+                <div class="form-section">
+                    <h2>Personne à contacter en cas d'urgence</h2>
+                    
+                    <div class="form-group">
+                        <label for="urgenceNom" class="required">Nom</label>
+                        <input type="text" id="urgenceNom" name="urgenceNom" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="urgencePrenom" class="required">Prénom</label>
+                        <input type="text" id="urgencePrenom" name="urgencePrenom" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="urgenceTelephone" class="required">Numéro de téléphone</label>
+                        <input type="tel" id="urgenceTelephone" name="urgenceTelephone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="urgenceEmail" class="required">Email</label>
+                        <input type="email" id="urgenceEmail" name="urgenceEmail" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="urgenceLien" class="required">Lien avec la personne</label>
+                        <input type="text" id="urgenceLien" name="urgenceLien" placeholder="ex: Parent, Frère/Soeur, etc." required>
+                    </div>
+                </div>
+                
+                <!-- Informations académiques -->
+                <div class="form-section">
+                    <h2>Informations Académiques</h2>
+                    
+                    <div class="form-group">
+                        <label for="etablissementBac" class="required">Nom de votre établissement au Bac</label>
+                        <input type="text" id="etablissementBac" name="etablissementBac" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="diplomes" class="required">Diplômes</label>
+                        <textarea id="diplomes" name="diplomes" rows="4" placeholder="Listez vos diplômes (un par ligne)" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="relevesNotes" class="required">Relevés de notes</label>
+                        <div class="file-input">
+                            <input type="file" id="relevesNotes" name="relevesNotes" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" required>
+                            <small>Formats acceptés: PDF, JPG, PNG, DOC (max 16MB)</small>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="autresCertifications">Autres certifications (optionnel)</label>
+                        <div class="file-input">
+                            <input type="file" id="autresCertifications" name="autresCertifications" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">
+                            <small>Formats acceptés: PDF, JPG, PNG, DOC (max 16MB)</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Documents d'identité -->
+                <div class="form-section">
+                    <h2>Documents d'Identité</h2>
+                    
+                    <div class="form-group">
+                        <label for="passeportCNI" class="required">Passeport / CNI</label>
+                        <div class="file-input">
+                            <input type="file" id="passeportCNI" name="passeportCNI" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" required>
+                            <small>Formats acceptés: PDF, JPG, PNG, DOC (max 16MB)</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span class="btn-text">Soumettre le formulaire</span>
+                    <span class="loading-spinner" style="display: none;">Envoi en cours...</span>
+                </button>
+                
+                <div id="successMessage" class="success-message" style="display: none;">
+                    Formulaire soumis avec succès ! Vos informations ont été envoyées.
+                </div>
+                
+                <div id="errorMessage" class="error-message" style="display: none;">
+                    Erreur lors de l'envoi. Veuillez réessayer.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('candidateForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const loadingSpinner = submitBtn.querySelector('.loading-spinner');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Masquer les messages précédents
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            // Afficher le spinner de chargement
+            btnText.style.display = 'none';
+            loadingSpinner.style.display = 'inline';
+            submitBtn.disabled = true;
+            
+            try {
+                const formData = new FormData(this);
+                
+                const response = await fetch('/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    successMessage.textContent = result.message;
+                    successMessage.style.display = 'block';
+                    document.getElementById('candidateForm').reset();
+                } else {
+                    errorMessage.textContent = result.message;
+                    errorMessage.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Erreur:', error);
+                errorMessage.textContent = 'Une erreur est survenue. Veuillez réessayer.';
+                errorMessage.style.display = 'block';
+            } finally {
+                // Restaurer le bouton
+                btnText.style.display = 'inline';
+                loadingSpinner.style.display = 'none';
+                submitBtn.disabled = false;
+                
+                // Faire défiler jusqu'au message
+                if (successMessage.style.display === 'block') {
+                    successMessage.scrollIntoView({ behavior: 'smooth' });
+                } else if (errorMessage.style.display === 'block') {
+                    errorMessage.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

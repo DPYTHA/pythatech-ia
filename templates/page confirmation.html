@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmation</title>
+  <style>
+    /* --- Global --- */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0a1a33; /* Bleu nuit */
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    section {
+      width: 100%;
+      max-width: 600px;
+      background: #fff;
+      color: #000;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      text-align: center;
+    }
+
+    .section-title {
+      text-align: center;
+      color: #0a1a33; /* Bleu nuit */
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    /* --- Bouton --- */
+    .btn-submit {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #0077cc; /* Bleu ciel */
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      background: #005fa3; /* Bleu ciel foncé */
+    }
+  </style>
+</head>
+<body>
+  <section id="confirmation">
+    <h1 class="section-title">✅ Candidature envoyée avec succès</h1>
+    <p>Merci d’avoir soumis votre candidature.<br>
+       Nous vous contacterons très bientôt par email 📩.</p>
+    <a href="formulaire.html" class="btn-submit">⬅️ Retour au formulaire</a>
+  </section>
+</body>
+</html>

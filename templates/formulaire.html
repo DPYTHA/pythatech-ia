@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulaire de candidature</title>
+  <style>
+    /* --- Global --- */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0a1a33; /* Bleu nuit */
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    section {
+      width: 100%;
+      max-width: 700px;
+      background: #fff;
+      color: #000;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    .section-title {
+      text-align: center;
+      color: #0a1a33; /* Bleu nuit */
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #0077cc; /* Bleu ciel */
+      margin-top: 20px;
+    }
+
+    /* --- Formulaire --- */
+    form label {
+      display: block;
+      font-weight: bold;
+      margin-top: 12px;
+      color: #0a1a33; /* Texte bleu nuit */
+    }
+
+    form input, form select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    form input:focus, form select:focus {
+      outline: none;
+      border: 1px solid #0077cc;
+      box-shadow: 0 0 5px rgba(0,119,204,0.5);
+    }
+
+    /* --- Bouton --- */
+    .btn-submit {
+      display: block;
+      width: 100%;
+      margin-top: 25px;
+      padding: 12px;
+      background: #0077cc; /* Bleu ciel */
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      background: #005fa3; /* Bleu ciel foncé */
+    }
+  </style>
+</head>
+<body>
+  <section id="formulaire">
+    <h1 class="section-title">📝 Renseignement du candidat</h1>
+    <form action="http://127.0.0.1:5000/submit_form" method="POST">
+      <h2>Informations personnelles</h2>
+      
+      <label>Nom :</label>
+      <input type="text" name="nom" required>
+
+      <label>Prénom :</label>
+      <input type="text" name="prenom" required>
+
+      <label>Numéro de téléphone :</label>
+      <input type="text" name="telephone" required>
+
+      <label>Email :</label>
+      <input type="email" name="email" required>
+
+      <label>Pays :</label>
+      <input type="text" name="pays" required>
+
+      <label>Ville :</label>
+      <input type="text" name="ville" required>
+
+      <label>Quartier :</label>
+      <input type="text" name="quartier">
+
+      <label>Nom, prénom du père :</label>
+      <input type="text" name="pere">
+
+      <label>Nom, prénom de la mère :</label>
+      <input type="text" name="mere">
+
+      <label>Statut :</label>
+      <select name="statut" required>
+        <option value="marie">Marié(e)</option>
+        <option value="celibataire">Célibataire</option>
+      </select>
+
+      <h2>👤 Personne à contacter en cas d’urgence</h2>
+      <label>Nom :</label>
+      <input type="text" name="urgence_nom" required>
+
+      <label>Prénom :</label>
+      <input type="text" name="urgence_prenom" required>
+
+      <label>Numéro de téléphone :</label>
+      <input type="text" name="urgence_telephone" required>
+
+      <label>Email :</label>
+      <input type="email" name="urgence_email">
+
+      <label>Pays :</label>
+      <input type="text" name="urgence_pays">
+
+      <label>Ville :</label>
+      <input type="text" name="urgence_ville">
+
+      <button type="submit" class="btn-submit">📨 Envoyer ma candidature</button>
+    </form>
+  </section>
+</body>
+</html>
