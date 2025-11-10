@@ -3,345 +3,676 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="web icon" href="logo.png">
+  <link rel="icon" href="images/logo.png" type="image/png">
   <title>Admissions et Bourses - PythAcademy</title>
-  <link rel="stylesheet" href="admission.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary:  #1e1b4b;
+      --accent: #06d6a0;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --gradient: linear-gradient(135deg,  #1e1b4b 0%,  #1e1b4b 100%);
+    }
 
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 999;
-  cursor: pointer;
-  animation: pulse 2s infinite;
-  transition: transform 0.3s ease;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.whatsapp-float img {
-  width: 50px;
-  height: 50px;
-}
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: var(--dark);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
 
-/* Animation */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.15);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
+    /* Header Modern */
+    .main-header {
+      background: var(--gradient);
+      padding: 1rem 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+    }
 
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #ffffff;
-  color: #333;
-}
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
 
-.main-header {
-  background-color: #0099cc;
-  padding: 20px;
-  color: white;
-  text-align: center;
-}
+    .logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
-  font-weight: bold;
-}
+    .logo-text {
+      color: white;
+    }
 
-nav a.active {
-  text-decoration: underline;
-}
+    .logo-text h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
 
-.country-section {
-  padding: 40px 20px;
-  background-color: #f0f8ff;
-  border-bottom: 1px solid #ccc;
-}
+    .logo-text span {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
 
-.country-section h2 {
-  color: #005a8c;
-}
+    .main-nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
 
-.contact-section {
-  background-color: #e6f7ff;
-  padding: 40px 20px;
-  text-align: center;
-}
+    .main-nav a:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+    }
 
-.contact-section h2 {
-  color: #005a8c;
-  font-size: 2rem;
-}
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: var(--gradient);
+      color: white;
+      position: relative;
+    }
 
-.contact-section p {
-  color: #333;
-  margin-bottom: 30px;
-}
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
 
-.contact-icons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-}
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      opacity: 0.9;
+    }
 
-.contact-icon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  transition: transform 0.3s ease;
-  width: 120px;
-}
+    /* Country Cards */
+    .countries-grid {
+      max-width: 1200px;
+      margin: -50px auto 4rem;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
 
-.contact-icon img {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 10px;
-}
+    .country-card {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+    }
 
-.contact-icon span {
-  color: #005a8c;
-  font-weight: bold;
-}
+    .country-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
 
-.contact-icon:hover {
-  transform: scale(1.1);
-}
+    .country-flag {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
 
-.footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #0099cc;
-  color: white;
-}
+    .country-card h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
 
+    .country-features {
+      list-style: none;
+    }
 
+    .country-features li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .country-features li:last-child {
+      border-bottom: none;
+    }
+
+    .feature-icon {
+      color: var(--accent);
+      font-size: 1rem;
+    }
+
+    /* Videos Section */
+    .videos-section {
+      padding: 4rem 2rem;
+      background: var(--light);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      color: var(--dark);
+      margin-bottom: 1rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-header p {
+      color: var(--gray);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .videos-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .video-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .video-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    .video-thumbnail {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .video-thumbnail::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(37, 99, 235, 0.8), rgba(124, 58, 237, 0.8));
+      z-index: 1;
+    }
+
+    .thumbnail-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .video-card:hover .thumbnail-img {
+      transform: scale(1.1);
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255,255,255,0.9);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+
+    .play-button i {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-left: 3px;
+    }
+
+    .video-card:hover .play-button {
+      background: white;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .video-content {
+      padding: 1.5rem;
+    }
+
+    .video-content h4 {
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .video-content p {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .watch-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gradient);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .watch-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 4rem 2rem;
+      background: var(--dark);
+      color: white;
+    }
+
+    .contact-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .contact-card {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.15);
+    }
+
+    .contact-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .contact-card h4 {
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .contact-card a {
+      color: white;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: rgba(255,255,255,0.2);
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-card a:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* WhatsApp Float */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      z-index: 1000;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    /* Footer */
+    .main-footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .main-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      .countries-grid {
+        grid-template-columns: 1fr;
+        margin-top: -30px;
+      }
+
+      .videos-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="logo.png">
-      <h2 >  PythAcademy</h2>
-</div>
-    <h1>🎓 Admissions et Bourses</h1>
-
+  <!-- Header -->
+  <header class="main-header">
+    <div class="header-content">
+      <div class="logo">
+        <img src="/static/images/logo.png" alt="PythAcademy">
+        <div class="logo-text">
+          <h1>PythAcademy</h1>
+          <span>Votre avenir commence ici</span>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html"><i class="fas fa-home"></i> Accueil</a>
+        <a href="formations.html"><i class="fas fa-graduation-cap"></i> Formations</a>
+        <a href="services.html"><i class="fas fa-briefcase"></i> Services</a>
+        <a href="about.html"><i class="fas fa-info-circle"></i> À propos</a>
+      </nav>
+    </div>
   </header>
-  <a href="https://wa.me/message/XTQKCCN4ZCN7L1" 
-   class="whatsapp-float" 
-   target="_blank" 
-   title="Contactez-nous sur WhatsApp">
-  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" 
-       alt="WhatsApp">
-</a>
-  <main>
-    <section class="content">
-      <p>Bienvenue dans la section dédiée aux admissions et bourses de PythAcademy.</p>
-      <p>Ici, vous trouverez toutes les opportunités d'admission dans nos programmes ainsi que les bourses disponibles.</p>
-      <section style="padding: 40px; background-color: #f0f8ff;">
-        <h2 style="color: #003366; text-align: center;">🇮🇹 Étudier en Italie</h2>
-        <p style="max-width: 800px; margin: 20px auto; font-size: 16px;">
-          L’Italie offre une éducation de qualité dans un environnement culturel riche. Les universités italiennes comme La Sapienza, Politecnico di Milano ou l’Université de Bologne sont reconnues mondialement.
-        </p>
-        <ul style="max-width: 800px; margin: 0 auto 30px; font-size: 16px;">
-          <li><strong>Langue d’enseignement :</strong> Italien ou Anglais (selon le programme)</li>
-          <li><strong>Conditions d’admission :</strong> Bac + relevés + lettre de motivation + certificat de langue</li>
-          <li><strong>Frais de scolarité :</strong> entre 500€ et 2 000€ par an (pour les étudiants internationaux)</li>
-          <li><strong>Avantages :</strong> Possibilité de bourses et jobs étudiants</li>
-        </ul>
-      </section>
-      
-    </section>
-    <section style="padding: 40px; background-color: #e6f0ff;">
-        <h2 style="color: #1c1c52; text-align: center;">🇷🇺 Étudier en Russie</h2>
-        <p style="max-width: 800px; margin: 20px auto; font-size: 16px;">
-          La Russie accueille de nombreux étudiants étrangers dans ses grandes universités comme MGU, ITMO, HSE ou Skoltech. Elle propose une éducation technique et scientifique de haut niveau.
-        </p>
-        <ul style="max-width: 800px; margin: 0 auto 30px; font-size: 16px;">
-          <li><strong>Langue d’enseignement :</strong> Russe ou Anglais (selon le programme)</li>
-          <li><strong>Conditions d’admission :</strong> Dossier académique + test d’entrée ou entretien + visa</li>
-          <li><strong>Frais de scolarité :</strong> entre 1 000€ et 4 000€ par an</li>
-          <li><strong>Avantages :</strong> Bourse complète possible via le programme du gouvernement russe</li>
-        </ul>
-      </section>
-      <section style="padding: 40px; background-color: #f5f5f5;">
-        <h2 style="color: #0055a4; text-align: center;">🇫🇷 Étudier en France</h2>
-        <p style="max-width: 800px; margin: 20px auto; font-size: 16px;">
-          La France est l'une des destinations préférées des étudiants francophones. Elle propose une offre de formation variée dans des établissements publics et privés.
-        </p>
-        <ul style="max-width: 800px; margin: 0 auto 30px; font-size: 16px;">
-          <li><strong>Langue d’enseignement :</strong> Français (avec certains masters en anglais)</li>
-          <li><strong>Conditions d’admission :</strong> Dossier + Campus France + visa étudiant</li>
-          <li><strong>Frais de scolarité :</strong> 170€ à 380€ par an dans les universités publiques</li>
-          <li><strong>Avantages :</strong> Coût faible + nombreuses bourses + accès à des aides sociales</li>
-        </ul>
-      </section>
-      <section style="padding: 40px; background-color: #e3f2fd;">
-        <h2 style="color: #d32f2f; text-align: center;">🇨🇦 Étudier au Canada</h2>
-        <p style="max-width: 800px; margin: 20px auto; font-size: 16px;">
-          Le Canada combine un enseignement de qualité et un environnement multiculturel accueillant. Les universités canadiennes sont très bien classées mondialement.
-        </p>
-        <ul style="max-width: 800px; margin: 0 auto 30px; font-size: 16px;">
-          <li><strong>Langue d’enseignement :</strong> Anglais et/ou Français</li>
-          <li><strong>Conditions d’admission :</strong> Diplômes + preuve linguistique (IELTS/TEF) + visa</li>
-          <li><strong>Frais de scolarité :</strong> 10 000 à 20 000 CAD par an</li>
-          <li><strong>Avantages :</strong> Possibilité de travailler pendant les études + immigration facilitée</li>
-        </ul>
-      </section>
-      <section style="padding: 40px; background-color: #f0f0f0;">
-        <h2 style="color: #000000; text-align: center;">🇩🇪 Étudier en Allemagne</h2>
-        <p style="max-width: 800px; margin: 20px auto; font-size: 16px;">
-          L'Allemagne offre un enseignement supérieur gratuit ou peu coûteux, notamment dans les filières techniques et scientifiques. Les universités allemandes sont ouvertes aux étudiants étrangers.
-        </p>
-        <ul style="max-width: 800px; margin: 0 auto 30px; font-size: 16px;">
-          <li><strong>Langue d’enseignement :</strong> Allemand ou Anglais (selon le programme)</li>
-          <li><strong>Conditions d’admission :</strong> Diplômes + niveau B2/C1 en allemand ou anglais + visa</li>
-          <li><strong>Frais de scolarité :</strong> 0€ dans la plupart des universités publiques (hors frais de semestre)</li>
-          <li><strong>Avantages :</strong> Coût bas + bonne qualité de vie + nombreuses opportunités de travail</li>
-        </ul>
-      </section>
-            
-      
-      
-      
-  </main>
-  <section id="au-pair-allemagne" style="background-color: #f0f8ff; padding: 40px;">
-    <h2 style="color: #005a8c; text-align: center;">Comment immigrer en Allemagne via le programme Au Pair</h2>
-    
-    <p style="color: #333; font-size: 1.2rem; line-height: 1.6;">Le programme Au Pair est une excellente opportunité pour les jeunes adultes qui souhaitent vivre en Allemagne tout en découvrant la culture locale et en améliorant leurs compétences linguistiques. En tant qu'Au Pair, vous vivrez avec une famille d'accueil, vous aurez la possibilité d'apprendre l'allemand, et vous pourrez découvrir la vie quotidienne en Allemagne.</p>
 
-    <h3 style="color: #005a8c;">Qu'est-ce qu'un Au Pair ?</h3>
-    <p style="color: #333; font-size: 1.1rem; line-height: 1.6;">Un Au Pair est une personne qui vit avec une famille d'accueil dans un autre pays pour s'occuper des enfants tout en recevant de l'argent de poche, de la nourriture, et un logement. En échange, l'Au Pair s'engage à aider la famille dans les tâches ménagères légères et la garde d'enfants, tout en ayant du temps libre pour étudier ou explorer le pays.</p>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>🎓 Admissions & Bourses Internationales</h2>
+    <p>Découvrez les opportunités d'études à l'étranger et transformez votre rêve en réalité</p>
+  </section>
 
-    <h3 style="color: #005a8c;">Conditions pour devenir Au Pair en Allemagne</h3>
-    <ul style="color: #333; font-size: 1.1rem; line-height: 1.8;">
-        <li><strong>Âge :</strong> Vous devez avoir entre 18 et 27 ans.</li>
-        <li><strong>Langue :</strong> Bien qu'il ne soit pas obligatoire de parler couramment l'allemand, il est fortement recommandé d'avoir des connaissances de base pour communiquer avec la famille d'accueil et les enfants.</li>
-        <li><strong>Durée :</strong> Le séjour au pair en Allemagne dure généralement entre 6 et 12 mois.</li>
-        <li><strong>Assurance santé :</strong> Vous devez souscrire à une assurance maladie pendant votre séjour en Allemagne.</li>
-        <li><strong>Expérience avec les enfants :</strong> Avoir une expérience préalable dans la garde d'enfants ou la capacité à interagir avec des enfants est un plus.</li>
-    </ul>
+  <!-- Countries Grid -->
+  <section class="countries-grid">
+    <div class="country-card">
+      <div class="country-flag">🇮🇹</div>
+      <h3>Étudier en Italie</h3>
+      <ul class="country-features">
+        <li><i class="fas fa-check feature-icon"></i> <strong>Langue:</strong> Italien ou Anglais</li>
+        <li><i class="fas fa-check feature-icon"></i> <strong>Frais:</strong> 500€ - 2 000€/an</li>
+        <li><i class="fas fa-check feature-icon"></i> <strong>Avantages:</strong> Bourses et jobs étudiants</li>
+        <li><i class="fas fa-check feature-icon"></i> <strong>Durée:</strong> Programmes flexibles</li>
+      </ul>
+    </div>
 
-    <h3 style="color: #005a8c;">Les avantages du programme Au Pair en Allemagne</h3>
-    <ul style="color: #333; font-size: 1.1rem; line-height: 1.8;">
-        <li><strong>Vivre en Allemagne :</strong> Profitez de l'opportunité de vivre dans un pays européen avec une riche culture et histoire.</li>
-        <li><strong>Amélioration de la langue :</strong> Apprenez l'allemand grâce à l'immersion quotidienne et des cours de langue offerts par la famille d'accueil.</li>
-        <li><strong>Expérience professionnelle :</strong> Développez des compétences utiles dans le domaine de la garde d'enfants et du travail domestique.</li>
-        <li><strong>Découverte culturelle :</strong> Vous aurez l'occasion de découvrir le mode de vie allemand, de voyager et de rencontrer d'autres jeunes au pair.</li>
-    </ul>
+    <div class="country-card">
+      <div class="country-flag">🇷🇺</div>
+      <h3>Étudier en Russie</h3>
+      <ul class="country-features">
+        <li><i class="fas fa-check feature-icon"></i> <strong>Langue:</strong> Russe ou Anglais</li>
+        <li><i class="fas fa-check feature-icon"></i> <strong>Frais:</strong> 1 000€ - 4 000€/an</li>
+        <li><i class="fas fa-check feature-icon"></i> <strong>Avantages:</strong> Bourses gouvernementales</li>
+        <li><i class="fas fa-check feature-icon"></i> <strong>Spécialités:</strong> Technique & Scientifique</li>
+      </ul>
+    </div>
 
-    <h3 style="color: #005a8c;">Comment postuler au programme Au Pair en Allemagne ?</h3>
-    <ol style="color: #333; font-size: 1.1rem; line-height: 1.8;">
-        <li><strong>Recherchez une famille d'accueil :</strong> Il existe plusieurs plateformes en ligne où vous pouvez trouver des familles allemandes intéressées à accueillir un Au Pair.</li>
-        <li><strong>Postulez auprès des agences :</strong> Vous pouvez également vous inscrire auprès d'agences spécialisées dans le programme Au Pair, qui faciliteront la mise en relation avec des familles d'accueil.</li>
-        <li><strong>Préparez votre dossier :</strong> Vous devrez fournir un CV, une lettre de motivation, des références (si possible), et parfois des preuves de votre expérience avec les enfants.</li>
-        <li><strong>Obtenez un visa (si nécessaire) :</strong> Si vous n'êtes pas citoyen de l'UE, vous devrez peut-être obtenir un visa pour séjourner en Allemagne en tant qu'Au Pair. Renseignez-vous auprès de l'ambassade allemande de votre pays pour savoir si un visa est nécessaire.</li>
-    </ol>
-
-    <h3 style="color: #005a8c;">Les frais liés au programme Au Pair</h3>
-    <p style="color: #333; font-size: 1.1rem; line-height: 1.8;">Les frais varient selon l'agence et la famille d'accueil, mais en général, l'Au Pair ne doit pas payer de frais importants. Voici quelques dépenses auxquelles vous devrez peut-être faire face :</p>
-    <ul style="color: #333; font-size: 1.1rem; line-height: 1.8;">
-        <li><strong>Frais de visa :</strong> Si vous êtes citoyen d'un pays hors UE, vous devrez probablement payer des frais pour obtenir un visa.</li>
-        <li><strong>Frais d'agence :</strong> Certaines agences demandent des frais d'inscription pour vous aider à trouver une famille d'accueil.</li>
-        <li><strong>Assurance santé :</strong> Vous devrez souscrire à une assurance santé pendant votre séjour en Allemagne.</li>
-    </ul>
-</section>
- <!-- SECTION CONTACT MULTICANAUX -->
- <section id="contactez-nous" class="contact-section">
-    <h2>Contactez-nous facilement si vous souhaitez solliciter nos services.</h2>
-    <p>Nous sommes disponibles sur vos plateformes préférées. N'hésitez pas à nous écrire !</p>
-
-    <div class="contact-icons">
-      <a href="https://wa.me/message/XTQKCCN4ZCN7L1" target="_blank" class="contact-icon whatsapp">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
-        <span>WhatsApp</span>
-      </a>
-
-      <a href="https://t.me/@dpytha91" target="_blank" class="contact-icon telegram">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram">
-        <span>Telegram</span>
-      </a>
-
-      <a href="https://studio.youtube.com/channel/UCPGgTUcxlO8GYuobxTvwM5A/videos/upload?filter=%5B%5D&sort=%7B%22columnType%22%3A%22date%22%2C%22sortOrder%22%3A%22DESCENDING%22%7D" target="_blank" class="contact-icon youtube">
-        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
-        <span>YouTube</span>
-      </a>
-
-      <a href="mailto:pythacademy@gmail.com" class="contact-icon gmail">
-        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail">
-        <span>Gmail</span>
-      </a>
+    <div class="country-card">
+      <div class="country-flag">🇫🇷</div>
+      <h3>Étudier en France</h3>
+      <ul class="country-features">
+        <li><i class="fas fa-check feature-icon"></i> <strong>Langue:</strong> Français</li>
+        <li><i class="fas fa-check feature-icon"></i> <strong>Frais:</strong> 170€ - 380€/an</li>
+        <li><i class="fas fa-check feature-icon"></i> <strong>Avantages:</strong> Coût faible + aides sociales</li>
+        <li><i class="fas fa-check feature-icon"></i> <strong>Reconnaissance:</strong> Diplômes prestigieux</li>
+      </ul>
     </div>
   </section>
-  <section class="drive-videos-section">
-    <h2>🎥 Découvrez quelques témoignages vidéo </h2>
-    <p>Accédez aux témoignages d'étudiants que nous avons accompagnés dans leur projet d'études à l'étranger.</p>
-  
-    <div class="drive-video-list">
-  
-      <div class="drive-video-card">
-        <img src="img1.jpeg" alt="Vidéo 1">
-        <h4>Étudier en Russie - Témoignage</h4>
-        <a href="https://drive.google.com/file/d/1UrFrvYJS0yEnl0WRJ8oImEDE4aelImeC/view?usp=sharing" target="_blank" class="watch-button">Voir la vidéo</a>
-      </div>
-  
-      <div class="drive-video-card">
-        <img src="img2.jpeg" alt="Vidéo 2">
-        <h4>Parcours Au Pair en Allemagne</h4>
-        <a href="https://drive.google.com/file/d/1Z_CbpiU8pL0qqXkmRlUH2Q7vGr-Ve01d/view?usp=sharing" target="_blank" class="watch-button">Voir la vidéo</a>
-      </div>
-  
-      <div class="drive-video-card">
-        <img src="img3.jpeg" alt="Vidéo 3">
-        <h4>Reception du Visa pour le Canada</h4>
-        <a href="https://drive.google.com/file/d/1whNeu3gRSj3Ii6-Bx73UYRmRoFCfJ9x8/view?usp=sharing" target="_blank" class="watch-button">Voir la vidéo</a>
+
+  <!-- Videos Section -->
+  <section class="videos-section">
+    <div class="section-header">
+      <h2>🎥 Témoignages Inspirants</h2>
+      <p>Découvrez les parcours réussis de nos étudiants à travers le monde</p>
+    </div>
+
+    <div class="videos-grid">
+      <!-- Video Card 1 -->
+      <div class="video-card">
+        <div class="video-thumbnail">
+          <div class="thumbnail-img" style="background: linear-gradient(45deg, #ff6b6b, #ee5a24);"></div>
+          <div class="play-button">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+        <div class="video-content">
+          <h4>De Abidjan à Moscou</h4>
+          <p>Kevin partage son expérience d'études en ingénierie en Russie</p>
+          <a href="https://drive.google.com/file/d/1UrFrvYJS0yEnl0WRJ8oImEDE4aelImeC/view" class="watch-btn" target="_blank">
+            <i class="fas fa-play-circle"></i> Voir le témoignage
+          </a>
+        </div>
       </div>
 
-      <div class="drive-video-card">
-        <img src="img4.jpeg" alt="Vidéo 1">
-        <h4>Étudier en France  - Campus France</h4>
-        <a href="https://drive.google.com/file/d/1DLB-4JAa5gRhGYVZqxDRXx4xJQ8HYKYn/view?usp=sharing" target="_blank" class="watch-button">Voir la vidéo</a>
+      <!-- Video Card 2 -->
+      <div class="video-card">
+        <div class="video-thumbnail">
+          <div class="thumbnail-img" style="background: linear-gradient(45deg, #4834d4, #686de0);"></div>
+          <div class="play-button">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+        <div class="video-content">
+          <h4>Au Pair à Berlin</h4>
+          <p>Sarah raconte son année en Allemagne comme jeune au pair</p>
+          <a href="https://drive.google.com/file/d/1Z_CbpiU8pL0qqXkmRlUH2Q7vGr-Ve01d/view" class="watch-btn" target="_blank">
+            <i class="fas fa-play-circle"></i> Voir le témoignage
+          </a>
+        </div>
       </div>
-  
-      <div class="drive-video-card">
-        <img src="img5.jpeg" alt="Vidéo 2">
-        <h4>Parcours Bourse de Chine  </h4>
-        <a href="https://drive.google.com/file/d/1-eyJHKZJlAf2vy2pS4UcT9fux5u3leTR/view?usp=sharing" target="_blank" class="watch-button">Voir la vidéo</a>
-      </div>
-  
-      <div class="drive-video-card">
-        <img src="img6.jpeg" alt="Vidéo 3">
-        <h4>Parcours visa succes Canada</h4>
-        <a href="https://drive.google.com/file/d/1wj0fy3GtZwrfM7FLJgukUlP1kHZOHtrX/view?usp=sharing" target="_blank" class="watch-button">Voir la vidéo</a>
-      </div>
-   
 
-      <div class="drive-video-card">
-        <img src="img7.jpeg" alt="Vidéo 2">
-        <h4>Parcours visa succes Canada</h4>
-        <a href="https://drive.google.com/file/d/1QfwJKT7Af0FR44BMI20VdR2ysLHtXOTz/view?usp=sharing" target="_blank" class="watch-button">Voir la vidéo</a>
+      <!-- Video Card 3 -->
+      <div class="video-card">
+        <div class="video-thumbnail">
+          <div class="thumbnail-img" style="background: linear-gradient(45deg, #00b894, #00cec9);"></div>
+          <div class="play-button">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+        <div class="video-content">
+          <h4>Visa Canada Réussi</h4>
+          <p>Marc explique son processus de visa étudiant pour le Canada</p>
+          <a href="https://drive.google.com/file/d/1whNeu3gRSj3Ii6-Bx73UYRmRoFCfJ9x8/view" class="watch-btn" target="_blank">
+            <i class="fas fa-play-circle"></i> Voir le témoignage
+          </a>
+        </div>
       </div>
-  
-      <div class="drive-video-card">
-        <img src="img8.jpeg" alt="Vidéo 3">
-        <h4>Étudier au canada - Témoignage</h4>
-        <a href="https://drive.google.com/file/d/1hCuR5vMKGvdFEhLp7fLjIRd-YiSCFkrs/view?usp=sharing" target="_blank" class="watch-button">Voir la vidéo</a>
+
+      <!-- Video Card 4 -->
+      <div class="video-card">
+        <div class="video-thumbnail">
+          <div class="thumbnail-img" style="background: linear-gradient(45deg, #e17055, #fab1a0);"></div>
+          <div class="play-button">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+        <div class="video-content">
+          <h4>MBA en Italie</h4>
+          <p>Sophie partage son parcours en commerce international à Milan</p>
+          <a href="https://drive.google.com/file/d/1DLB-4JAa5gRhGYVZqxDRXx4xJQ8HYKYn/view" class="watch-btn" target="_blank">
+            <i class="fas fa-play-circle"></i> Voir le témoignage
+          </a>
+        </div>
       </div>
-  
+
+      <!-- Video Card 5 -->
+      <div class="video-card">
+        <div class="video-thumbnail">
+          <div class="thumbnail-img" style="background: linear-gradient(45deg, #0984e3, #74b9ff);"></div>
+          <div class="play-button">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+        <div class="video-content">
+          <h4>Bourse en Chine</h4>
+          <p>Thomas témoigne de son expérience avec une bourse complète</p>
+          <a href="https://drive.google.com/file/d/1-eyJHKZJlAf2vy2pS4UcT9fux5u3leTR/view" class="watch-btn" target="_blank">
+            <i class="fas fa-play-circle"></i> Voir le témoignage
+          </a>
+        </div>
+      </div>
+
+      <!-- Video Card 6 -->
+      <div class="video-card">
+        <div class="video-thumbnail">
+          <div class="thumbnail-img" style="background: linear-gradient(45deg, #a29bfe, #6c5ce7);"></div>
+          <div class="play-button">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+        <div class="video-content">
+          <h4>Vie Étudiante en France</h4>
+          <p>Marie décrit son quotidien d'étudiante internationale à Paris</p>
+          <a href="https://drive.google.com/file/d/1wj0fy3GtZwrfM7FLJgukUlP1kHZOHtrX/view" class="watch-btn" target="_blank">
+            <i class="fas fa-play-circle"></i> Voir le témoignage
+          </a>
+        </div>
+      </div>
     </div>
   </section>
-  
-  
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="section-header">
+      <h2>📞 Contactez-Nous</h2>
+      <p>Prêt à commencer votre aventure ? Nous sommes là pour vous accompagner</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="fab fa-whatsapp"></i>
+        </div>
+        <h4>WhatsApp</h4>
+        <p>Réponse instantanée</p>
+        <a href="https://wa.me/message/XTQKCCN4ZCN7L1" target="_blank">
+          <i class="fab fa-whatsapp"></i> Nous écrire
+        </a>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="fab fa-telegram"></i>
+        </div>
+        <h4>Telegram</h4>
+        <p>Support continu</p>
+        <a href="https://t.me/dpytha91" target="_blank">
+          <i class="fab fa-telegram"></i> Nous rejoindre
+        </a>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="fab fa-youtube"></i>
+        </div>
+        <h4>YouTube</h4>
+        <p>Contenu exclusif</p>
+        <a href="https://studio.youtube.com/channel/UCPGgTUcxlO8GYuobxTvwM5A" target="_blank">
+          <i class="fab fa-youtube"></i> S'abonner
+        </a>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <h4>Email</h4>
+        <p>Support détaillé</p>
+        <a href="mailto:pythacademy@gmail.com">
+          <i class="fas fa-envelope"></i> Envoyer un email
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/message/XTQKCCN4ZCN7L1" class="whatsapp-float" target="_blank" title="Contactez-nous sur WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <p>&copy; 2024 PythAcademy. Tous droits réservés. | Votre succès international commence ici</p>
+  </footer>
 </body>
 </html>

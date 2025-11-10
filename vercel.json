@@ -4,6 +4,14 @@
     {
       "src": "*.html",
       "use": "@vercel/static"
+    },
+    {
+      "src": "*.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "images/*",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -27,14 +35,26 @@
       "src": "/about",
       "dest": "/about.html"
     },
-     {
-      "src": "/page_confirmation",
-      "dest": "/page_confirmation.html"
+    {
+      "src": "/page-confirmation",
+      "dest": "/page confirmation.html"
     },
+    
+    {
+      "src": "/(.*\\.css)",
+      "dest": "/$1"
+    },
+   
+    {
+      "src": "/images/(.*)",
+      "dest": "/images/$1"
+    },
+    
     {
       "src": "/(.*\\.html)",
       "dest": "/$1"
     },
+    
     {
       "src": "/(.*)",
       "dest": "/index.html"
