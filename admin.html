@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration Admin</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; }
+        .form-group { margin-bottom: 15px; }
+        input { width: 100%; padding: 10px; margin: 5px 0; }
+        button { background: #007bff; color: white; padding: 10px 20px; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Configuration Telegram</h1>
+        <div class="form-group">
+            <label>Token du Bot:</label>
+            <input type="text" id="botToken" placeholder="Token du bot Telegram">
+        </div>
+        <div class="form-group">
+            <label>Chat ID:</label>
+            <input type="text" id="chatId" placeholder="Votre Chat ID">
+        </div>
+        <button onclick="saveConfig()">Sauvegarder la Configuration</button>
+        <div id="message" style="margin-top: 15px;"></div>
+    </div>
+
+    <script>
+        function saveConfig() {
+            const config = {
+                botToken: document.getElementById('botToken').value,
+                chatId: document.getElementById('chatId').value
+            };
+            
+            // Ici vous devriez sauvegarder sur un serveur
+            // Pour l'instant on affiche juste la configuration
+            document.getElementById('message').innerHTML = 
+                `<pre>// config.js\nconst TELEGRAM_CONFIG = ${JSON.stringify(config, null, 4)};</pre>`;
+        }
+    </script>
+</body>
+</html>

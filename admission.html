@@ -235,7 +235,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(45deg, rgba(37, 99, 235, 0.8), rgba(124, 58, 237, 0.8));
+      background: linear-gradient(45deg, rgba(37, 99, 235, 0.4), rgba(124, 58, 237, 0.4));
       z-index: 1;
     }
 
@@ -309,6 +309,33 @@
     .watch-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Video Preview Styles */
+    .video-preview {
+      width: 100%;
+      height: 200px;
+      border-radius: 10px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .preview-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .video-thumbnail:hover .preview-overlay {
+      opacity: 1;
     }
 
     /* Contact Section */
@@ -507,104 +534,134 @@
     </div>
 
     <div class="videos-grid">
-      <!-- Video Card 1 -->
+      <!-- Video Card 1 - Avec aperçu intégré -->
       <div class="video-card">
         <div class="video-thumbnail">
-          <div class="thumbnail-img" style="background: linear-gradient(45deg, #ff6b6b, #ee5a24);"></div>
-          <div class="play-button">
-            <i class="fas fa-play"></i>
+          <video class="video-preview" muted loop playsinline>
+            <source src="https://drive.google.com/uc?export=download&id=1UrFrvYJS0yEnl0WRJ8oImEDE4aelImeC" type="video/mp4">
+            Votre navigateur ne supporte pas la lecture de vidéos.
+          </video>
+          <div class="preview-overlay">
+            <div class="play-button">
+              <i class="fas fa-play"></i>
+            </div>
           </div>
         </div>
         <div class="video-content">
           <h4>De Abidjan à Moscou</h4>
           <p>Kevin partage son expérience d'études en ingénierie en Russie</p>
           <a href="https://drive.google.com/file/d/1UrFrvYJS0yEnl0WRJ8oImEDE4aelImeC/view" class="watch-btn" target="_blank">
-            <i class="fas fa-play-circle"></i> Voir le témoignage
+            <i class="fas fa-play-circle"></i> Voir le témoignage complet
           </a>
         </div>
       </div>
 
-      <!-- Video Card 2 -->
+      <!-- Video Card 2 - Avec aperçu intégré -->
       <div class="video-card">
         <div class="video-thumbnail">
-          <div class="thumbnail-img" style="background: linear-gradient(45deg, #4834d4, #686de0);"></div>
-          <div class="play-button">
-            <i class="fas fa-play"></i>
+          <video class="video-preview" muted loop playsinline>
+            <source src="https://drive.google.com/uc?export=download&id=1Z_CbpiU8pL0qqXkmRlUH2Q7vGr-Ve01d" type="video/mp4">
+            Votre navigateur ne supporte pas la lecture de vidéos.
+          </video>
+          <div class="preview-overlay">
+            <div class="play-button">
+              <i class="fas fa-play"></i>
+            </div>
           </div>
         </div>
         <div class="video-content">
           <h4>Au Pair à Berlin</h4>
           <p>Sarah raconte son année en Allemagne comme jeune au pair</p>
           <a href="https://drive.google.com/file/d/1Z_CbpiU8pL0qqXkmRlUH2Q7vGr-Ve01d/view" class="watch-btn" target="_blank">
-            <i class="fas fa-play-circle"></i> Voir le témoignage
+            <i class="fas fa-play-circle"></i> Voir le témoignage complet
           </a>
         </div>
       </div>
 
-      <!-- Video Card 3 -->
+      <!-- Video Card 3 - Avec aperçu intégré -->
       <div class="video-card">
         <div class="video-thumbnail">
-          <div class="thumbnail-img" style="background: linear-gradient(45deg, #00b894, #00cec9);"></div>
-          <div class="play-button">
-            <i class="fas fa-play"></i>
+          <video class="video-preview" muted loop playsinline>
+            <source src="https://drive.google.com/uc?export=download&id=1whNeu3gRSj3Ii6-Bx73UYRmRoFCfJ9x8" type="video/mp4">
+            Votre navigateur ne supporte pas la lecture de vidéos.
+          </video>
+          <div class="preview-overlay">
+            <div class="play-button">
+              <i class="fas fa-play"></i>
+            </div>
           </div>
         </div>
         <div class="video-content">
           <h4>Visa Canada Réussi</h4>
           <p>Marc explique son processus de visa étudiant pour le Canada</p>
           <a href="https://drive.google.com/file/d/1whNeu3gRSj3Ii6-Bx73UYRmRoFCfJ9x8/view" class="watch-btn" target="_blank">
-            <i class="fas fa-play-circle"></i> Voir le témoignage
+            <i class="fas fa-play-circle"></i> Voir le témoignage complet
           </a>
         </div>
       </div>
 
-      <!-- Video Card 4 -->
+      <!-- Video Card 4 - Avec aperçu intégré -->
       <div class="video-card">
         <div class="video-thumbnail">
-          <div class="thumbnail-img" style="background: linear-gradient(45deg, #e17055, #fab1a0);"></div>
-          <div class="play-button">
-            <i class="fas fa-play"></i>
+          <video class="video-preview" muted loop playsinline>
+            <source src="https://drive.google.com/uc?export=download&id=1DLB-4JAa5gRhGYVZqxDRXx4xJQ8HYKYn" type="video/mp4">
+            Votre navigateur ne supporte pas la lecture de vidéos.
+          </video>
+          <div class="preview-overlay">
+            <div class="play-button">
+              <i class="fas fa-play"></i>
+            </div>
           </div>
         </div>
         <div class="video-content">
           <h4>MBA en Italie</h4>
           <p>Sophie partage son parcours en commerce international à Milan</p>
           <a href="https://drive.google.com/file/d/1DLB-4JAa5gRhGYVZqxDRXx4xJQ8HYKYn/view" class="watch-btn" target="_blank">
-            <i class="fas fa-play-circle"></i> Voir le témoignage
+            <i class="fas fa-play-circle"></i> Voir le témoignage complet
           </a>
         </div>
       </div>
 
-      <!-- Video Card 5 -->
+      <!-- Video Card 5 - Avec aperçu intégré -->
       <div class="video-card">
         <div class="video-thumbnail">
-          <div class="thumbnail-img" style="background: linear-gradient(45deg, #0984e3, #74b9ff);"></div>
-          <div class="play-button">
-            <i class="fas fa-play"></i>
+          <video class="video-preview" muted loop playsinline>
+            <source src="https://drive.google.com/uc?export=download&id=1-eyJHKZJlAf2vy2pS4UcT9fux5u3leTR" type="video/mp4">
+            Votre navigateur ne supporte pas la lecture de vidéos.
+          </video>
+          <div class="preview-overlay">
+            <div class="play-button">
+              <i class="fas fa-play"></i>
+            </div>
           </div>
         </div>
         <div class="video-content">
           <h4>Bourse en Chine</h4>
           <p>Thomas témoigne de son expérience avec une bourse complète</p>
           <a href="https://drive.google.com/file/d/1-eyJHKZJlAf2vy2pS4UcT9fux5u3leTR/view" class="watch-btn" target="_blank">
-            <i class="fas fa-play-circle"></i> Voir le témoignage
+            <i class="fas fa-play-circle"></i> Voir le témoignage complet
           </a>
         </div>
       </div>
 
-      <!-- Video Card 6 -->
+      <!-- Video Card 6 - Avec aperçu intégré -->
       <div class="video-card">
         <div class="video-thumbnail">
-          <div class="thumbnail-img" style="background: linear-gradient(45deg, #a29bfe, #6c5ce7);"></div>
-          <div class="play-button">
-            <i class="fas fa-play"></i>
+          <video class="video-preview" muted loop playsinline>
+            <source src="https://drive.google.com/uc?export=download&id=1wj0fy3GtZwrfM7FLJgukUlP1kHZOHtrX" type="video/mp4">
+            Votre navigateur ne supporte pas la lecture de vidéos.
+          </video>
+          <div class="preview-overlay">
+            <div class="play-button">
+              <i class="fas fa-play"></i>
+            </div>
           </div>
         </div>
         <div class="video-content">
           <h4>Vie Étudiante en France</h4>
           <p>Marie décrit son quotidien d'étudiante internationale à Paris</p>
           <a href="https://drive.google.com/file/d/1wj0fy3GtZwrfM7FLJgukUlP1kHZOHtrX/view" class="watch-btn" target="_blank">
-            <i class="fas fa-play-circle"></i> Voir le témoignage
+            <i class="fas fa-play-circle"></i> Voir le témoignage complet
           </a>
         </div>
       </div>
@@ -674,5 +731,50 @@
   <footer class="main-footer">
     <p>&copy; 2024 PythAcademy. Tous droits réservés. | Votre succès international commence ici</p>
   </footer>
+
+  <script>
+    // Script pour gérer la lecture automatique des aperçus vidéo
+    document.addEventListener('DOMContentLoaded', function() {
+      const videoPreviews = document.querySelectorAll('.video-preview');
+      
+      // Options pour l'Intersection Observer
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Démarrer la lecture quand la vidéo est visible
+            entry.target.play().catch(error => {
+              console.log('Lecture automatique bloquée:', error);
+            });
+          } else {
+            // Mettre en pause quand la vidéo n'est pas visible
+            entry.target.pause();
+          }
+        });
+      }, options);
+
+      // Observer chaque aperçu vidéo
+      videoPreviews.forEach(video => {
+        observer.observe(video);
+        
+        // Gérer le survol de la souris
+        video.parentElement.addEventListener('mouseenter', () => {
+          video.play().catch(error => {
+            console.log('Lecture au survol bloquée:', error);
+          });
+        });
+
+        video.parentElement.addEventListener('mouseleave', () => {
+          video.pause();
+          video.currentTime = 0; // Remettre au début
+        });
+      });
+    });
+  </script>
 </body>
 </html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Chat ID</title>
+</head>
+<body>
+    <input type="text" id="token" placeholder="Token du bot">
+    <button onclick="getChatId()">Trouver Chat ID</button>
+    <div id="result"></div>
+    <script>
+        async function getChatId() {
+            const token = document.getElementById('token').value;
+            const response = await fetch(`https://api.telegram.org/bot${token}/getUpdates`);
+            const data = await response.json();
+            if (data.ok && data.result.length > 0) {
+                const chatId = data.result[data.result.length - 1].message.chat.id;
+                document.getElementById('result').innerHTML = `Votre Chat ID: <strong>${chatId}</strong>`;
+            }
+        }
+    </script>
+</body>
+</html>
